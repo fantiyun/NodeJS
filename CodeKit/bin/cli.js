@@ -1,11 +1,9 @@
 #! /usr/bin/env node
 const { program } = require('commander')
-program.option('-f  --framwork <framwork>', 'setting framwork')
-program.command('create <project> [other...]')
-.alias('crt')
-.description('create project name')
-.action((project, args) => {
-  // 命令行的逻辑执行代码
-  console.log('project', project, 'args', args)
-})
+const kitHelp = require('../lib/core/kitHelp')
+const kitCommander = require('../lib/core/kitCommander')
+// 处理 help
+kitHelp(program)
+kitCommander(program)
+
 program.parse(process.argv)
