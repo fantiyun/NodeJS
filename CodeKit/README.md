@@ -16,10 +16,10 @@
  *  - 项目初始化完成命令提示
  */
 
- 
- - 参考 vite
- ``` javascript
-  Project name: 
-  Select a framework: 
-  Select a variant:
- ```
+1. 创建全局命令
+- 在 npm init 之前先创建 /bin/cli.js，通过 npm link 将命令挂载到全局
+2. 使用 commander 接收处理命令行参数
+3. 使用 inquirer 处理命令行交互问答
+4. 下载框架代码 download-git-repo
+5. 任务等待工具 Ora
+6. 命令行样式渲染工具 chalk

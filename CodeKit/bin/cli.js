@@ -7,3 +7,4 @@ kitHelp(program)
 kitCommander(program)
 
 program.parse(process.argv)
+
