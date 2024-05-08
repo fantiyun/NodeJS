@@ -1,3 +1,5 @@
+- codekit create [project name]
+
 /**
  * 1. 什么是脚手架？
  *  - 全局命令行工具
