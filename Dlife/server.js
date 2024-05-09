@@ -1,16 +1,29 @@
-// 1.导入 http 模块
 const http = require('http')
-// 2.创建服务器( createServer() 获取到服务器的实例对象)
+const fs = require('fs')
+const url = require('url')
 const server = http.createServer()
-// 3.设置服务监听端口
 server.listen(8080, () => {
 	console.log('http://127.0.0.1:8080')
 })
-// 4.接收客户端请求
 server.on('request', (req, res) => {
-	console.log('request')
-	// 5.响应请求
-	res.write('881118 你好')
-	// 6.断开响应
-	res.end()
+
+	// 获取请求类型
+	if(req.method === 'GET') {
+		// console.log(req.url)
+		// GET 方法获取参数 http://127.0.0.1:8080/user?id=123
+		console.log(url.parse(req.url, true).query.id)
+		if(req.url === '/') {
+			fs.readFile('./test/index.html', 'utf8', (err, data) => {
+				res.write(data)
+				res.end()
+			})
+		} else {
+			// 相应图片
+			fs.readFile('./test/images/ElectronWorkFlow.png', (err, data) => {
+				res.end(data)
+			})
+		}
+	} else if(req.method === 'POST') {
+
+	}
 })
